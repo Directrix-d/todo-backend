@@ -3,7 +3,9 @@ import Connection from "./database/db.js";
 import cors from 'cors'
 import route from "./routes/route.js";
 import bodyParser from "body-parser";
+import dotenv from "dotenv"
 const app = express();
+dotenv.config();
 
 app.use(cors());
 
@@ -14,6 +16,8 @@ app.use('/', route)
 
 Connection();
 
-app.listen("3300",function(){
+const port = process.env.Port
+
+app.listen(port,function(){
     console.log("server live")
 })

@@ -4,10 +4,9 @@ import dotenv from "dotenv"
 
 dotenv.config();
 
-const Username = process.env.Db_UserName;
-const Pass = process.env.Db_Pass;
+const Mongo_Url = process.env.mongoUrl;
  const Connection = ()=>{
-    mongoose.connect(`mongodb+srv://${Username}:${Pass}@cluster0.oa7zlra.mongodb.net/?retryWrites=true&w=majority`).then(function(){
+    mongoose.connect(Mongo_Url).then(function(){
         console.log("connected db")
     }).catch(function(){
         console.log("Connectin error")
